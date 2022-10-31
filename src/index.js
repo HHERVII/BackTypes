@@ -32,7 +32,7 @@ app.get("/api/v1/stationTreatments", async (req, res) => {
             res.status(200).json({
                 state: "FAIL",
                 data: [],
-                msj: "No fuu posible realizar la consulta",
+                msj: "No fué posible realizar la consulta",
             });
         }
     } catch (e) {
