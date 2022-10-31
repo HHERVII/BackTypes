@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
-app.set("port", process.env.PORT || 4001);
+app.set("port", process.env.PORT || 8083);
 app.use(cors());
 
 app.use(express.json({ limit: "50mb" }));
