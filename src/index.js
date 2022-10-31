@@ -26,7 +26,7 @@ app.get("/api/v1/stationTreatments", async (req, res) => {
             res.status(200).json({
                 state: "OK",
                 data: response,
-                msj: "Exito aL realizar la consulta",
+                msj: "Exito al realizar la consulta",
             });
         } else {
             res.status(200).json({
