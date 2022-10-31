@@ -10,7 +10,7 @@ const data = {
     connectTimeout: 30000,
 };
 
-/* let connection = mysql.createConnection(data);
+let connection = mysql.createConnection(data);
 connection.connect((err) => {
     if (err) {
         console.log("error");
@@ -18,6 +18,6 @@ connection.connect((err) => {
     } else {
         console.log("exito en la conexion");
     }
-}); */
+});
 const config = data;
-module.exports = { config /* mysql, connection  */ };
+module.exports = { config, mysql, connection };

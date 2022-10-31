@@ -21,8 +21,8 @@ console.log("holaaa mundo");
 //get
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
-        const response = true;
-        //await connection.query`SELECT * FROM station_treatments `;
+        const response =
+            await connection.query`SELECT * FROM station_treatments `;
         if (response) {
             res.status(200).json({
                 state: "OK",
