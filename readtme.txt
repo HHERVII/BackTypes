@@ -1,0 +1,12 @@
+/--pasos
+=> npm install typescript
+=> npm init -y
+=> npm install @types/node --save-dev
+=> npx tsc --init --rootDir src --outDir build \
+        > --esModuleInterop --resolveJsonModule --lib es6 \
+        > --module commonjs --allowJs true --noImplicitAny true
+
+=> npm i morgan  -D nodemon
+=> npm i mysql.
+=> npm i cors.
+=> npm i express.
