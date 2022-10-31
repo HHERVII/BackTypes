@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { mysql } = require("./databaseConnect/index");
+const { connection } = require("./databaseConnect/index");
 
 const bodyParser = require("body-parser");
 app.set("port", process.env.PORT || 4001);
@@ -21,7 +21,8 @@ console.log("holaaa mundo");
 //get
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
-        const response = await mysql.query`SELECT * FROM station_treatments `;
+        const response =
+            await connection.query`SELECT * FROM station_treatments `;
         if (response) {
             res.status(200).json({
                 state: "OK",
