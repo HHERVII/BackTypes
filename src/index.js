@@ -37,7 +37,7 @@ app.get("/api/v1/stationTreatments", async (req, res) => {
             });
         }
     } catch (e) {
-        res.status(500).json("Error no se logró  hace la consulta");
+        res.status(500).json("Error no se logró  hacer la consulta");
     }
 });
 
