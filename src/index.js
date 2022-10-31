@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { connection } = require("./databaseConnect/index");
 
+const mysql = require("mysql");
 const bodyParser = require("body-parser");
 app.set("port", process.env.PORT || 4001);
 app.use(cors());
@@ -21,6 +21,16 @@ console.log("holaaa mundo");
 //get
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
+        const data = {
+            user: "Ajimenez",
+            password: "AJ%$2087mmq",
+            host: "104.248.53.140",
+            database: "pruebas",
+            connectTimeout: 30000,
+            port: 3306,
+        };
+
+        let connection = mysql.createConnection(data);
         connection.connect((err) => {
             if (err) {
                 console.log("error");
