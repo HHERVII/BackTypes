@@ -1,15 +1,27 @@
-const expres = require("express");
-const app = expres();
+const express = require("express");
+const app = express();
 const cors = require("cors");
 const { mysql } = require("./databaseConnect/index");
+
+const bodyParser = require("body-parser");
 app.set("port", process.env.PORT || 4001);
 app.use(cors());
 
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use(express.static("files"));
+app.use(function (req, res, next) {
+    res.set("Cache-control", "no-cache");
+    next();
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 console.log("holaaa mundo");
 //get
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
-        const response = await mysql.query`SELECT * FROM station_treatments`;
+        const response = await mysql.query`SELECT * FROM station_treatments `;
         if (response) {
             res.status(200).json({
                 state: "OK",
