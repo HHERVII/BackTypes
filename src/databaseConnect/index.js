@@ -12,13 +12,6 @@ const data = {
 };
 
 let connection = mysql.createConnection(data);
-connection.connect((err) => {
-    if (err) {
-        console.log("error");
-        console.log(err);
-    } else {
-        console.log("exito en la conexion");
-    }
-});
+
 const config = data;
 module.exports = { config, mysql, connection };

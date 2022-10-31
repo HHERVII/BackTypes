@@ -21,6 +21,14 @@ console.log("holaaa mundo");
 //get
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
+        connection.connect((err) => {
+            if (err) {
+                console.log("error");
+                console.log(err);
+            } else {
+                console.log("exito en la conexion");
+            }
+        });
         const response =
             await connection.query`SELECT * FROM station_treatments `;
         if (response) {
