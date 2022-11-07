@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-else-return */
-const { log } = require("console");
 const mysql = require("mysql");
 
 const data = {
@@ -8,20 +7,18 @@ const data = {
     password: "123456!Bases",
     host: "24.199.68.208",
     database: "pruebas",
-    connectionLimit: 10,
+    connectTimeout: 30000,
     port: "3306",
-    multipleStatements: true,
 };
-let connection;
+const connection = mysql.createConnection(data);
 try {
-    connection = mysql.createPool(data);
-    connection.getConnection(function (err, conn) {
+    connection.connect((err) => {
         if (err) {
-            console.log("mala conexion");
+            console.log("error");
             console.log(err);
-            return;
+        } else {
+            console.log("exito en la conexion");
         }
-        console.log("exitoo");
     });
 } catch (e) {
     console.log(e);
