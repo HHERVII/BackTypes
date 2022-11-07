@@ -74,46 +74,44 @@ app.post("/api/v1/stationTreatments", async (req, res) => {
         Date_Time,
     } = req.body;
     try {
+        let querysend = `INSERT INTO  station_treatments ( 
+    user,
+     Treatment,
+     Longitude,
+     Latitude,
+      SM_1 ,
+      SM_2,
+      SM_3,
+      Env_Temp ,
+      RH,
+      CO2 ,
+      Canopy_Temp ,
+      CS_Temp ,
+      Irrig_Pres_Rate,
+     Irrig_Pres_Time,
+     Date_Time
+)
+VALUES ('${user}',${Treatment},${Longitude},${Latitude},${SM_1},${SM_2},${SM_3},${Env_Temp},${RH},${CO2},${Canopy_Temp},${CS_Temp},${Irrig_Pres_Rate},${Irrig_Pres_Time},'${Date_Time}')`;
         const connection = mysql.createConnection(config);
         connection.connect(async (err) => {
             if (err) {
                 console.log("error");
             } else {
-                await connection.query(
-                    `INSERT INTO  station_treatments ( 
-                                        user, Treatment, Longitude, Latitude,  SM_1 ,SM_2,SM_3, Env_Temp , RH,CO2 , Canopy_Temp ,CS_Temp ,Irrig_Pres_Rate,Irrig_Pres_Time,
-                                        Date_Time
-                                        )
-                                            VALUES (         ${user},
-                                                    ${Treatment},
-                                                    ${Longitude},
-                                                    ${Latitude},
-                                                    ${SM_1},
-                                                    ${SM_2},
-                                                    ${SM_3},
-                                                    ${Env_Temp},
-                                                    ${RH},
-                                                    ${CO2},
-                                                    ${Canopy_Temp},
-                                                    ${CS_Temp},
-                                                    ${Irrig_Pres_Rate},
-                                                    ${Irrig_Pres_Time},
-                                                    ${Date_Time});`,
-                    (err, response, fields) => {
-                        if (response) {
-                            res.status(200).json({
-                                state: "OK",
-                                msj: "Datos actualizados",
-                            });
-                        } else {
-                            res.status(200).json({
-                                state: "FAIL",
-                                data: [],
-                                msj: "No fué posible realizar la actualizacion",
-                            });
-                        }
+                await connection.query(querysend, (err, response, fields) => {
+                    if (response) {
+                        res.status(200).json({
+                            state: "OK",
+                            msj: "Datos actualizados",
+                        });
+                    } else {
+                        console.log(err);
+                        res.status(200).json({
+                            state: "FAIL",
+                            data: [],
+                            msj: "No fué posible realizar la actualizacion",
+                        });
                     }
-                );
+                });
                 connection.end();
             }
         });

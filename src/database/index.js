@@ -36,8 +36,9 @@ INSERT INTO  station_treatments (
       CS_Temp ,
       Irrig_Pres_Rate,
      Irrig_Pres_Time,
-     Date_Time,
-     id
+     Date_Time
 )
-VALUES ('HEIVER',12, -15.6,5.45,2.3256,1.254,2.25,35.25,95.5,2.3,2.2,25.2,152.2,12.25,  '2018-10-20',1);
+VALUES ('HEIVER',12, -15.6,5.45,2.3256,1.254,2.25,35.25,95.5,2.3,2.2,25.2,152.2,12.25,  '2018-10-20');
 
+INSERT INTO  station_treatments (user, Treatment, Longitude, Latitude,  SM_1 ,SM_2,SM_3, Env_Temp , RH,CO2 , Canopy_Temp ,CS_Temp ,Irrig_Pres_Rate,Irrig_Pres_Time,Date_Time,id)
+                                            VALUES (prueba post,2,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2.252,2022-05-12,2)
