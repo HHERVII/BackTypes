@@ -8,7 +8,7 @@ const data = {
     server: "localhost",
     database: "pruebas",
     connectTimeout: 30000,
-    socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
+    port: "3307",
 };
 let connection;
 try {
