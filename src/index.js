@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 console.log("holaaa mundo");
 //get
 app.get("/", (req, res) => {
-    res.send("back types");
+    res.send("BIENVENIDO AL BACK DE SENSORES ");
 });
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
@@ -55,6 +55,7 @@ app.get("/api/v1/stationTreatments", async (req, res) => {
         res.status(500).json("Error no se logró  hacer la consulta");
     }
 });
+//post
 app.post("/api/v1/stationTreatments", async (req, res) => {
     const {
         user,
