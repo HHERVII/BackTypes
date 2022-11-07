@@ -6,6 +6,7 @@ const data = {
     user: "root",
     password: "123456!Bases",
     host: "24.199.68.208",
+    database: "pruebas",
     connectTimeout: 30000,
 };
 let connection;
