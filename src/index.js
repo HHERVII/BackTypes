@@ -19,6 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 console.log("holaaa mundo");
 //get
+app.get("/", (req, res) => {
+    res.send("back types");
+});
 app.get("/api/v1/stationTreatments", async (req, res) => {
     try {
         const connection = mysql.createConnection(config);
