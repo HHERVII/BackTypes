@@ -5,7 +5,7 @@ const mysql = require("mysql");
 const data = {
     user: "root",
     password: "123456!Bases",
-    host: "24.199.68.208",
+    host: "localhost",
     database: "pruebas",
     connectTimeout: 30000,
 };
