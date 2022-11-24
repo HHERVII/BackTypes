@@ -74,6 +74,7 @@ app.post("/api/v1/stationTreatments", async (req, res) => {
         Irrig_Pres_Time,
         Date_Time,
     } = req.body;
+    console.log(req);
     try {
         let querysend = `INSERT INTO  station_treatments ( 
     user,
