@@ -73,6 +73,7 @@ app.post("/api/v1/stationTreatments", async (req, res) => {
         Irrig_Pres_Rate,
         Irrig_Pres_Time,
         Date_Time,
+        Date_Time2,
     } = req.body;
     console.log(req);
     try {
@@ -91,9 +92,11 @@ app.post("/api/v1/stationTreatments", async (req, res) => {
       CS_Temp ,
       Irrig_Pres_Rate,
      Irrig_Pres_Time,
-     Date_Time
+     Date_Time,
+     
+     Date_Time2
 )
-VALUES ('${user}',${Treatment},${Longitude},${Latitude},${SM_1},${SM_2},${SM_3},${Env_Temp},${RH},${CO2},${Canopy_Temp},${CS_Temp},${Irrig_Pres_Rate},${Irrig_Pres_Time},'${Date_Time}')`;
+VALUES ('${user}',${Treatment},${Longitude},${Latitude},${SM_1},${SM_2},${SM_3},${Env_Temp},${RH},${CO2},${Canopy_Temp},${CS_Temp},${Irrig_Pres_Rate},${Irrig_Pres_Time},'${Date_Time}','${Date_Time2}')`;
         const connection = mysql.createConnection(config);
         connection.connect(async (err) => {
             if (err) {
